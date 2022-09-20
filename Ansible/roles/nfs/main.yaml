@@ -1,0 +1,9 @@
+- name: Installing Nfs
+  yum:
+    name: nfs-utils
+    state: latest
+- name: Starting and enabling
+  ansible.builtin.service
+    name: nfs-server
+    state: started
+    enabled: yes

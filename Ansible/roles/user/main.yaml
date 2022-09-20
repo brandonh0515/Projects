@@ -1,0 +1,5 @@
+- name: Creating a new user
+  user:
+    name: Kathy
+    state: present
+

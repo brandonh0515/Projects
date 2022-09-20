@@ -1,0 +1,44 @@
+---
+
+ - hosts: Webservers
+   become: yes
+   tasks: 
+     - name: Installing NFS Service
+       yum:
+         name: nfs-utils
+         state: latest
+     - name: Starting NFS Service and making it boot persistent
+       service: 
+         name: nfs
+         state: started
+         enabled: yes
+
+ - hosts: Dbservers
+   become: yes
+   tasks: 
+     - name: Copying file To Slave Server
+       copy:
+         src: /root/Projects/Ansible/Dbserver_file
+         dest: /root/backups
+         owner: root
+         group: root
+         mode: 775
+     - name: Creating a new user 
+       user:
+         name: Kathy
+         state: present
+
+ - hosts: Testservers
+   become: yes
+   tasks: 
+     - name: Patches a server with an automated cron job every 8 hours 
+       cron:
+         name: "Yum Update"
+         minute: "0"
+         hour: "8"
+         job: "yum update"
+     - name: Edits httpd config file 
+       ansible.builtin.lineinfile:
+         path: /etc/httpd/conf/httpd.conf
+         regexp: '^User apache'
+         line: User apache root

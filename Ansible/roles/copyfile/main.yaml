@@ -1,0 +1,7 @@
+- name: Copying file To Slave Server
+  copy:
+    src: /root/Projects/Dbserver_file
+    dest: /root/backups
+    owner: root
+    group: root
+    mode: 775

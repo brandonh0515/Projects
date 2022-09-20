@@ -1,0 +1,6 @@
+- name: Edits httpd config file
+    ansible.builtin.lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^User apache'
+      line: User apache root
+

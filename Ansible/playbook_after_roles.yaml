@@ -1,0 +1,17 @@
+---
+  - hosts: Webservers
+    become: yes
+    roles:
+      - nfs
+
+  - hosts: Dbservers
+    become: yes
+    roles: 
+      - copyfile
+      - user
+
+  - hosts: Testservers
+    become: yes
+    roles: 
+      - Line
+      - Patch

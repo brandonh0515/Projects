@@ -1,1 +1,8 @@
+[Testservers]
+10.0.0.4
+
 [Webservers]
+10.0.0.57
+
+[Dbservers]
+10.0.0.82

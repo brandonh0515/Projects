@@ -1,0 +1,7 @@
+instance_type = "t2.micro"
+vpc_cidr      = "10.0.0.0/16"
+ami           = "ami-00e87074e52e6c9f9"
+subnet_cidr   = "10.0.0.0/24"
+bucket_name   = "brandonhprojectbucket"
+region        = "us-east-1a"
+private_cidr  = "10.0.1.0/24"
